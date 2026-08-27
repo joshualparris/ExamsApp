@@ -37,9 +37,9 @@ export const contacts: Contact[] = [
   },
   {
     id: 'exam-tech-support',
-    name: 'Exams/Technical Hotline',
-    number: 'TBA',
-    description: 'Use number supplied by Exams team.',
-    status: 'placeholder',
+    name: 'Exams Hotline',
+    number: '1800 275 278',
+    description: 'CSU Exams Hotline / exam support contact.',
+    status: 'confirmed',
   },
 ];
