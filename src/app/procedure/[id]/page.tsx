@@ -9,8 +9,13 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProcedurePage({ params }: { params: { id: string } }) {
-  const procedure = procedures.find(p => p.id === params.id);
+export default async function ProcedurePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const procedure = procedures.find((p) => p.id === id);
   
   if (!procedure) {
     notFound();
