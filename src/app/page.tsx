@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { procedures } from '@/data/procedures';
 import SearchBox from '@/components/SearchBox';
 import { AlertTriangle, ChevronRight, Phone, Info } from 'lucide-react';
 import { searchProcedures } from '@/utils/search';
@@ -53,7 +52,7 @@ export default function Home() {
 
       {filteredProcedures.length === 0 && (
         <div className="text-center py-10 text-slate-500">
-          No procedures found for "{searchQuery}".
+          No procedures found for &quot;{searchQuery}&quot;.
         </div>
       )}
 

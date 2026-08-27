@@ -1,9 +1,8 @@
-const CACHE_NAME = 'csu-exams-cache-v1';
+const CACHE_NAME = 'csu-exams-cache-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      // Just cache root and let runtime cache the rest
       return cache.addAll(['/']);
     })
   );
@@ -26,22 +25,38 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Stale-while-revalidate for everything, or network-first for HTML
   if (event.request.method !== 'GET') return;
 
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      const fetchPromise = fetch(event.request).then((networkResponse) => {
-        const responseClone = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseClone);
-        });
-        return networkResponse;
-      }).catch(() => {
-        return cachedResponse;
-      });
+  // Don't cache chrome-extension:// or next.js hot reloading (dev)
+  if (!event.request.url.startsWith(self.location.origin) && !event.request.url.startsWith('https://')) return;
+  if (event.request.url.includes('/_next/webpack-hmr')) return;
 
-      return cachedResponse || fetchPromise;
-    })
+  event.respondWith(
+    // Network First, falling back to cache
+    fetch(event.request)
+      .then((networkResponse) => {
+        // Cache the successful response
+        if (networkResponse.ok) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+        }
+        return networkResponse;
+      })
+      .catch(() => {
+        // Fall back to cache on network failure (offline)
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+          // If neither network nor cache, could return a fallback offline page, but root '/' is cached
+          // If asking for a page, maybe return '/'
+          if (event.request.mode === 'navigate') {
+            return caches.match('/');
+          }
+          return null; // Return null if not found
+        });
+      })
   );
 });

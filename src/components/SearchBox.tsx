@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Search } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
 export default function SearchBox({ onSearch }: { onSearch?: (q: string) => void }) {
   const [query, setQuery] = useState('');
