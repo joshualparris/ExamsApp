@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #002347; /* Approximate CSU brand color if any, otherwise just a nice blue */
+  --color-primary-light: #003b73;
+  --color-accent: #e2f1ff;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
