@@ -7,260 +7,271 @@ export type Procedure = {
   steps: string[];
   notes?: string[];
   status?: 'confirmed' | 'confirm-with-host';
-  sourceType?: ('Training' | 'CSU Handbook' | 'CSU Policy' | 'CSU Emergency Guidance')[];
+  sourceType?: (
+    | 'Training'
+    | 'CSU Handbook'
+    | 'CSU Conduct Procedure'
+    | 'CSU Assessment Flexibility'
+    | 'CSU Emergency Guidance'
+    | 'CSU Current Students'
+  )[];
 };
 
 export const procedures: Procedure[] = [
   {
     id: 'before-exam',
     title: 'Before Exam',
-    shortAnswer: 'Arrive 30 mins early, find host, check room, check ID.',
-    keywords: ['start', 'arrive', 'setup', 'ID', 'enter', 'room', 'prepare', 'begin'],
+    shortAnswer: 'Arrive 30 minutes early, prepare the venue, admit students about 10 minutes early, and verify ID before the exam starts.',
+    keywords: ['start', 'arrive', 'setup', 'id', 'enter', 'room', 'prepare', 'begin', 'announcement'],
     urgency: 'normal',
     steps: [
-      'Arrive 30 minutes before scheduled start.',
-      'Find host/lead supervisor.',
-      'Confirm room and exam.',
-      'Locate exam papers/materials.',
-      'Locate attendance/student sheets.',
-      'Check room is ready.',
-      'Lay out papers/materials as directed.',
-      'Confirm seating arrangements.',
-      'Identify any AA/AEA arrangements.',
-      'Know nearest toilets.',
-      'Know emergency exits / assembly arrangements.',
-      'Let students in about 10 minutes before start.',
-      'Preferred: check ID as students enter.',
-      'Alternative: ID on desk and check before exam begins.',
-      'Make sure student has correct exam.',
-      'Make sure student uses allocated seat where applicable.',
-      'Prevent communication between students.',
-      'Check unauthorised materials.',
-      'Mark attendance/student list as instructed.',
+      'Arrive 30 minutes before the scheduled start.',
+      'Make sure the venue is ready and lay out the correct exam papers and permitted materials as directed.',
+      'Find the host/lead supervisor and confirm the exam, room and any approved alternative exam arrangements.',
+      'Let students into the room about 10 minutes before the start.',
+      'Check that each student has the correct exam and is not communicating with other students.',
+      'Check for unauthorised materials and follow the exam-specific instructions about permitted materials.',
+      'Verify each student’s identity before the exam starts.',
+      'Use the student/attendance sheet supplied at the venue as instructed.',
+      'Before the official start instruction, students must not begin writing. Once the prescribed start announcement is given, the 10-minute reading time begins and students may write during that reading time.'
     ],
     notes: [
-      'Host reads the prescribed exam announcement exactly as written.',
+      'The lead/host should use the current prescribed announcement supplied for the sitting; do not improvise the wording.',
+      'Exam-specific instructions and current Exams team directions take precedence where they are more specific.'
     ],
-    sourceType: ['Training', 'CSU Handbook'],
+    sourceType: ['Training', 'CSU Handbook', 'CSU Conduct Procedure'],
   },
   {
     id: 'check-id',
     title: 'Student ID',
-    shortAnswer: 'Check for valid photo ID. Do not accept Medicare alone.',
-    keywords: ['id', 'identification', 'medicare', 'driver license', 'student card'],
+    shortAnswer: 'Accept a Charles Sturt student ID or current government ID showing full name in English, photograph and signature.',
+    keywords: ['id', 'identification', 'medicare', 'driver licence', 'driver license', 'passport', 'student card'],
     urgency: 'normal',
     steps: [
-      'Preferred procedure: Check ID as students enter.',
-      'Alternative: Check ID displayed on desk before exam starts.',
-      'ACCEPT: CSU student ID OR current government-issued ID showing full name, photograph, and signature.',
-      'NOT ACCEPTABLE: Medicare card alone.',
-      'If ID is inadequate: Refer to host/lead supervisor. Do not improvise.'
+      'Verify identity before the exam starts.',
+      'Accept a Charles Sturt University student ID card.',
+      'Alternatively, accept a currently valid government-issued ID showing the student’s full name written in English, photograph and signature.',
+      'A Medicare card alone does not satisfy the current policy requirements because it does not provide the required photograph and signature.',
+      'If satisfactory identification is not provided, refer to the lead/host. Current CSU procedure permits an exam supervisor to instruct the person to leave the exam venue.'
     ],
-    sourceType: ['Training'],
+    notes: [
+      'Supervisor training recommends checking ID as students enter; checking displayed ID before the exam starts is also used operationally.'
+    ],
+    sourceType: ['CSU Conduct Procedure', 'CSU Handbook', 'Training'],
   },
   {
     id: 'student-late',
     title: 'Student Late',
-    shortAnswer: 'No extra time for arriving late. Over 30 mins late = generally not admitted.',
-    keywords: ['late', 'delayed', 'missed', 'time', 'extra time'],
+    shortAnswer: 'No extra finishing time. More than 30 minutes late is permitted only when the lateness was caused by a University error.',
+    keywords: ['late', 'delayed', 'missed', 'time', 'extra time', '30 minutes', 'half hour'],
     urgency: 'warning',
     steps: [
-      'LESS THAN / UP TO 30 MINUTES LATE: Student gets NO extra finishing time. Follow host/exam admission procedure.',
-      'MORE THAN 30 MINUTES LATE: Normally only permitted to sit where lateness was caused by a University error.',
-      'If lateness resulted from exceptional circumstances outside their control: refer student to Special Consideration / deferred exam process, and involve host/Exams team.'
+      'A late student is not given extra time to finish the exam.',
+      'A student arriving more than 30 minutes late may sit the exam only where the lateness was caused by an error on the part of the University.',
+      'If other exceptional circumstances outside the student’s control caused the lateness, they must apply for special consideration to sit a deferred exam.',
+      'Follow the lead supervisor/Exams team admission process for the sitting.'
     ],
     notes: [
-      'Never give extra exam time just because the student arrived late.'
+      'Do not extend the scheduled finishing time merely because a student arrived late.'
     ],
-    sourceType: ['CSU Handbook', 'Training'],
+    sourceType: ['CSU Conduct Procedure', 'CSU Handbook'],
   },
   {
     id: 'toilet-break',
     title: 'Toilet Break',
-    shortAnswer: 'Escort one student at a time. Do not enter bathroom.',
-    keywords: ['toilet', 'bathroom', 'restroom', 'washroom', 'break'],
+    shortAnswer: 'One student at a time. Keep the student supervised; do not enter the bathroom with them.',
+    keywords: ['toilet', 'bathroom', 'restroom', 'washroom', 'break', 'leave room', 'return'],
     urgency: 'normal',
     steps: [
-      'One student at a time.',
-      'Student must be supervised.',
-      'Escort/supervise student.',
-      'You do NOT enter the bathroom with them.',
-      'Ensure another supervisor remains responsible for the exam room.',
-      'A student who leaves unsupervised is not allowed to return.'
+      'Allow only one student at a time to go to the bathroom.',
+      'The student must be supervised while away from the exam room.',
+      'Escort/supervise the student but do not enter the bathroom with them.',
+      'Ensure the exam room remains supervised while you are assisting the student.',
+      'A student who leaves the exam unsupervised is not allowed to return.'
     ],
-    sourceType: ['Training', 'CSU Handbook'],
+    sourceType: ['CSU Handbook', 'Training'],
   },
   {
     id: 'student-sick',
     title: 'Student Sick',
-    shortAnswer: 'Take out of room. Determine if emergency. Student decides if they continue.',
-    keywords: ['sick', 'ill', 'vomit', 'faint', 'medical', 'unwell', 'health'],
+    shortAnswer: 'Take the student out under supervision, assess whether it is an emergency, and let the student decide whether to continue.',
+    keywords: ['sick', 'ill', 'vomit', 'faint', 'medical', 'unwell', 'health', 'special consideration', 'deferred'],
     urgency: 'warning',
     steps: [
-      'Take the student out of the exam room.',
-      'Determine whether this is an ordinary illness or an emergency.',
-      'Student decides whether they wish to continue.',
-      'If they do not continue, they may apply for Special Consideration.',
-      'Record the incident as required (Incident report likely required).'
+      'Take the unwell student out of the exam room under supervision and determine whether urgent medical help is needed.',
+      'The student decides whether they are well enough to continue. Follow the lead/host instructions about any return to the room.',
+      'Complete an Incident & Misconduct Report for the illness/irregularity.',
+      'If the student begins the exam but leaves early because of illness or other adverse circumstances, they must apply for special consideration to be granted a deferred exam.',
+      'Current CSU student guidance also says a student who becomes unable to complete an exam should contact their Subject Coordinator immediately.'
     ],
     notes: [
-      'Ultimately, whether to continue is the student\'s decision.',
-      'IF MEDICAL EMERGENCY: Call 000. Contact CSU Campus Security 1800 931 633. Follow first-aid/emergency directions.'
+      'If the student completes the exam without leaving early, current Assessment Flexibility rules treat them as having decided they were fit to sit for the purpose of a deferred-exam application.',
+      'For a medical emergency: call 000 for an ambulance, call Campus Security on 1800 931 633, and involve a Charles Sturt First Aid Officer where available.'
     ],
-    sourceType: ['Training', 'CSU Handbook'],
+    sourceType: ['Training', 'CSU Handbook', 'CSU Assessment Flexibility', 'CSU Emergency Guidance', 'CSU Current Students'],
   },
   {
     id: 'suspected-cheating',
     title: 'Suspected Misconduct',
-    shortAnswer: 'Observe carefully. Retain material. Write incident report.',
-    keywords: ['cheat', 'cheating', 'misconduct', 'phone', 'notes', 'unauthorised', 'smartwatch', 'copy'],
+    shortAnswer: 'Observe, prevent further access to unauthorised material, preserve evidence, complete the report and refer the matter — do not decide guilt.',
+    keywords: ['cheat', 'cheating', 'misconduct', 'phone', 'notes', 'unauthorised', 'smartwatch', 'copy', 'evidence'],
     urgency: 'warning',
     steps: [
-      'Do not immediately create a confrontation.',
-      'Move closer to the student.',
-      'Observe carefully.',
-      'Continue monitoring the rest of the room.',
-      'If unauthorised material is involved: retain it after the exam where appropriate, OR make detailed notes/evidence about its use.',
-      'Complete an Incident & Misconduct Report.',
-      'Refer through CSU\'s misconduct process / host.'
+      'If behaviour is suspicious, move closer and observe carefully while continuing to supervise the room.',
+      'If unauthorised material is identified, remove the student’s access to it in accordance with the handbook/current sitting instructions.',
+      'Current CSU procedure requires either retaining the material after an in-person exam or making detailed notes about its use, including evidence where relevant.',
+      'Complete an Incident & Misconduct Report where an incident/suspected misconduct has occurred.',
+      'Refer the matter for investigation under the University misconduct process.'
     ],
     notes: [
-      'Record facts. You are not deciding guilt.',
-      'Incident report is required.'
+      'Record factual observations and actions. The supervisor does not decide whether the student is guilty of misconduct.'
     ],
-    sourceType: ['Training', 'CSU Policy'],
+    sourceType: ['CSU Conduct Procedure', 'CSU Handbook', 'Training'],
   },
   {
     id: 'exam-question-problem',
     title: 'Exam Question Problem',
-    shortAnswer: 'Do NOT explain the question. Tell them to note it and answer best they can.',
-    keywords: ['question', 'error', 'mistake', 'typo', 'explain', 'understand', 'meaning'],
+    shortAnswer: 'Do not interpret the question. Have the student note the concern and answer to the best of their ability.',
+    keywords: ['question', 'error', 'mistake', 'typo', 'explain', 'understand', 'meaning', 'paper issue'],
     urgency: 'normal',
     steps: [
-      'Tell student to note their concern on the question paper.',
-      'Tell them to answer to the best of their ability.',
-      'Complete an Incident Report as required.'
+      'Do not explain, interpret or suggest an answer to an exam question.',
+      'Advise the student to note their concern on the question paper and answer the question to the best of their ability.',
+      'Complete an Incident Report for the issue as required.',
+      'The handbook directs that an Incident Report about an exam-paper/question issue is returned with the examination paper.'
     ],
     notes: [
-      'DO NOT: explain the question, interpret it, suggest what it means, or suggest an answer.'
+      'A genuine issue with a question can be taken into account through the marking process; the supervisor should not try to correct or interpret the question during the sitting.'
     ],
-    sourceType: ['Training'],
+    sourceType: ['CSU Handbook', 'Training'],
   },
   {
     id: 'fire-evacuation',
     title: 'Fire / Evacuation',
-    shortAnswer: 'Follow Warden. Do not delay for papers. Call 000 if you discover fire.',
-    keywords: ['fire', 'evacuate', 'evacuation', 'alarm', 'smoke', 'emergency', 'safety'],
+    shortAnswer: 'Follow Emergency Wardens, use EXIT routes and stairs, go to the assembly area, and do not re-enter until cleared.',
+    keywords: ['fire', 'evacuate', 'evacuation', 'alarm', 'smoke', 'emergency', 'safety', 'warden'],
     urgency: 'emergency',
     steps: [
-      'Stay calm.',
-      'Follow Emergency Warden instructions.',
-      'Follow EXIT signs.',
-      'Do not use lifts.',
-      'Proceed to the designated assembly area.',
-      'Keep students together/supervised where practicable.',
-      'Do not re-enter until authorised by the Chief/Building Warden.',
-      'Safety takes priority over exam materials.',
-      'Record the interruption once safe.',
-      'Contact the Exams team/host once safe.'
+      'Remain calm and follow Emergency Warden instructions.',
+      'Follow EXIT signs and use the stairs. Never use an elevator during evacuation.',
+      'If a route is unsafe because of smoke, flames or blockage, use the nearest safe exit route.',
+      'Proceed to the Evacuation Assembly Area after leaving the building.',
+      'Do not re-enter until the Chief Warden or Building Warden declares it safe.',
+      'Once safe, record the exam interruption and contact the Exams team/host as required.'
     ],
     notes: [
-      'If YOU discover fire/smoke: Raise/activate alarm, Call 000, Notify CSU Campus Security.',
-      'PAPER EXAMS: do not delay evacuation to gather exam papers. Leave exam materials in place unless current wardens/Exam instructions tell you otherwise. Maintain supervision and exam security where practicable. Do not allow discussion of exam content.',
-      'EXAM CONSEQUENCES: students do not individually need to lodge Special Consideration merely because the exam was stopped for safety. The academic response is determined by the appropriate CSU school/Subject Coordinator process.',
-      'Current CSU documents do not clearly specify BYOD laptop handling during evacuation. Follow warden/host instructions and never delay evacuation for a device.'
+      'If you become aware of fire or smoke: activate the fire alarm, call 000 and request the Fire Brigade, then call Campus Security on 1800 931 633 to notify them of the 000 call.',
+      'Current public CSU documents do not specify whether paper exam materials or BYOD laptops should be taken during an evacuation. Follow Warden and current Exams/host instructions; evacuation and safety directions take priority.',
+      'If an exam is cancelled or ended early for safety reasons, individual students do not submit special consideration just because the exam was stopped. The Head of the teaching school decides the academic response on the Subject Coordinator’s recommendation.'
     ],
-    sourceType: ['CSU Emergency Guidance', 'Training'],
+    sourceType: ['CSU Emergency Guidance', 'CSU Conduct Procedure'],
   },
   {
     id: 'byod-tech-problem',
     title: 'BYOD — Bring Your Own Device',
-    shortAnswer: 'Basic help only. Do not neglect room to troubleshoot.',
-    keywords: ['byod', 'laptop', 'computer', 'wifi', 'internet', 'tech', 'technical', 'crash', 'freeze'],
+    shortAnswer: 'Give only basic help, keep supervising the room, and use the technology allowance shown for that exam — never invent extra time.',
+    keywords: ['byod', 'laptop', 'computer', 'wifi', 'internet', 'tech', 'technical', 'crash', 'freeze', 'allowance', 'hotline'],
     urgency: 'normal',
     steps: [
-      'Students bring their own computer. Use supplied student list. Allocated seating.',
-      'Supervisor may provide basic technical help.',
-      'Escalate larger problems to Exams/technical support.'
+      'For BYOD sittings, follow the supplied student list and allocated seating instructions from the Exams team.',
+      'Provide only basic technical assistance while maintaining supervision of the room.',
+      'For larger problems, escalate to Exams/technical support. The Exams Hotline / Student Central number is 1800 275 278.',
+      'Do not add an arbitrary amount of extra time. Use the technology allowance displayed for the exam/student.',
+      'Current CSU procedure allows the Subject Coordinator to nominate a technology allowance of no more than 30 minutes for an online exam.'
     ],
     notes: [
-      'Do not become absorbed in troubleshooting while responsible for supervising the room.',
-      'An online exam may have a nominated technology allowance of up to 30 minutes. This does NOT mean every technical problem automatically gets 30 extra minutes.',
-      'For evacuation: BYOD laptop procedure is not yet confirmed. Follow current host/warden instructions. Never delay evacuation for a laptop.'
+      'Current CSU student guidance says technology allowances are shown on the exam timetable; its technical-help page says students have at least a 15-minute allowance for issues such as restarting a frozen computer.',
+      'Current public CSU documents do not specify BYOD laptop handling during evacuation. Follow Warden and current Exams/host instructions.'
     ],
     status: 'confirm-with-host',
-    sourceType: ['Training', 'CSU Handbook'],
+    sourceType: ['Training', 'CSU Conduct Procedure', 'CSU Current Students'],
   },
   {
     id: 'aea-accessibility',
     title: 'AEA / Accessibility',
-    shortAnswer: 'Follow approved arrangement exactly. Do not interpret or improve.',
-    keywords: ['aea', 'aa', 'accessibility', 'scribe', 'reader', 'rest break', 'extra time', 'disability'],
+    shortAnswer: 'Use the approved alternative exam arrangement / Study Access Plan exactly; do not create your own adjustment.',
+    keywords: ['aea', 'aa', 'accessibility', 'study access plan', 'sap', 'scribe', 'reader', 'rest break', 'extra time', 'disability', 'readspeaker'],
     urgency: 'normal',
     steps: [
-      'Primary rule: Follow the student\'s approved arrangement exactly.',
-      'SCRIBE: write exactly what student dictates. Do not improve or interpret answer. Only clarify/repeat enough to record words accurately.',
-      'READER: read examination wording only. Do not explain, interpret, or use emphasis/tone to imply answers.',
-      'REST BREAKS: follow approved timing. Student must stop working during approved rest break.',
-      'EXTRA TIME: follow the student\'s approved arrangement exactly.'
+      'For centrally administered final exams, approved alternative exam arrangements are published on the student’s exam timetable.',
+      'Provide the student with the approved arrangement exactly as specified. Do not make your own adjustment.',
+      'Current Assessment Flexibility procedure says a student granted an alternative exam arrangement must be given the opportunity to choose either standard conditions or the alternative arrangement they were granted.',
+      'SCRIBE: write exactly what the student dictates; do not interpret or improve the answer.',
+      'READER: read the examination wording without interpreting it or using emphasis that could suggest an answer.',
+      'REST BREAKS: ensure approved rest breaks are taken; the student must not continue working during a rest break.',
+      'EXTRA TIME: apply only the approved extra time/conditions shown for that student.'
     ],
     notes: [
-      'Do not make your own accessibility adjustments.'
+      'Study Access Plans are developed through Accessibility and Inclusion Support and may specify alternative exam arrangements.',
+      'Supervisor training/Brightspace guidance: ReadSpeaker is only for students with the relevant approved arrangement and only in the permitted room/headset setup.'
     ],
-    sourceType: ['CSU Handbook'],
+    sourceType: ['CSU Assessment Flexibility', 'CSU Handbook', 'Training'],
+  },
+  {
+    id: 'reading-time',
+    title: 'Reading Time',
+    shortAnswer: 'There is normally 10 minutes reading time, and students may write during it once the official exam start has been announced.',
+    keywords: ['reading', 'reading time', 'write', 'writing', '10 minutes', 'start announcement'],
+    urgency: 'normal',
+    steps: [
+      'Before the exam starts, students are given 10 minutes reading time unless a longer period has been formally approved for professional accreditation.',
+      'Students may begin writing during the reading time if they wish.',
+      'The handbook’s start announcement makes clear that the exam has begun and that the first 10 minutes are reading time.',
+      'Before the official start instruction is given, students must not begin writing.'
+    ],
+    sourceType: ['CSU Conduct Procedure', 'CSU Handbook'],
   },
   {
     id: 'finish-exam',
     title: 'Finish Exam',
-    shortAnswer: 'Stop writing. Collect materials. Check desks.',
+    shortAnswer: 'Give the prescribed 15-minute warning, stop all writing at time, collect materials and check names/student numbers.',
     keywords: ['finish', 'end', 'stop', 'complete', 'time up', 'papers', 'collect', '15 minutes'],
     urgency: 'normal',
     steps: [
-      'Host gives prescribed 15-minute warning before end.',
-      'Host announces exam is finished. STOP WRITING / PENS DOWN.',
-      'Ensure everyone stops writing. Students remain seated.',
-      'Collect all required exam materials.',
-      'Check student names/numbers/details where required.',
-      'Do not give extra time after finish just to complete identifying details.',
-      'Release students according to host procedure.',
-      'Check desks. Check under desks.',
-      'Check toilets for unauthorised materials.',
-      'POST-EXAM PAPERWORK: maintain security of completed scripts. Incident reports accompany paperwork where required. Attendance/student records handled according to venue instructions. Hand completed materials to host/Dubbo exam contact as instructed.'
+      'Give/read the prescribed 15-minute warning at the appropriate time.',
+      'At the scheduled finish, give/read the prescribed stop-writing instruction and ensure all students stop writing.',
+      'Keep students seated while required exam materials are collected.',
+      'Ensure students have their name and student number on all required examination materials.',
+      'Do not give extra time at the end for students to complete names/student numbers or cover details.',
+      'Check toilets and under desks for unauthorised materials left behind.',
+      'Keep completed scripts and paperwork secure and hand them over according to the current venue/host instructions.'
     ],
     notes: [
-      'Exact Dubbo post-exam script handover procedure is still to be confirmed.'
+      'The exact Dubbo post-exam script handover process is not stated in the current public CSU procedure or the supplied handbook; follow the exam-day host/Exams team instruction.'
     ],
     status: 'confirm-with-host',
-    sourceType: ['Training'],
+    sourceType: ['CSU Handbook', 'Training'],
   },
   {
     id: 'incident-report',
     title: 'Incident Report',
-    shortAnswer: 'Write factual notes. Do not invent electronic forms.',
-    keywords: ['incident', 'report', 'form', 'irregular', 'disruption'],
+    shortAnswer: 'Use the Incident & Misconduct Report for irregularities; complete all fields clearly and sign it.',
+    keywords: ['incident', 'report', 'form', 'irregular', 'disruption', 'illness', 'misconduct'],
     urgency: 'normal',
     steps: [
-      'Use when: suspected cheating, unauthorised material, issue with exam paper/question, disruption at venue, student illness where relevant, interruption, anything irregular.',
-      'Write clear factual notes: what happened, when, what you observed, what action was taken.'
+      'Use the Incident & Misconduct Report for an issue with the exam paper, a disruption at the venue, student illness, suspected cheating/inappropriate behaviour, or another irregularity.',
+      'Complete all required fields, write clearly and sign the report.',
+      'For unauthorised material, follow the current evidence process: remove access to it; retain it after the in-person exam or make detailed notes/evidence as applicable; then refer the matter for misconduct investigation.',
+      'For an exam-paper/question issue, the handbook directs that the report is returned with the examination paper.'
     ],
     notes: [
-      'Do not invent an electronic report form.'
+      'Record facts, times, observations and actions taken; avoid conclusions about guilt.'
     ],
-    sourceType: ['Training', 'CSU Handbook'],
+    sourceType: ['CSU Handbook', 'CSU Conduct Procedure'],
   },
   {
     id: 'attendance',
     title: 'Attendance',
-    shortAnswer: 'Follow the attendance/register sheet supplied at the venue.',
-    keywords: ['attendance', 'roll', 'register', 'slip', 'mark off'],
+    shortAnswer: 'Use the student/attendance sheet supplied at the venue; BYOD training says to mark students off the supplied list.',
+    keywords: ['attendance', 'roll', 'register', 'sheet', 'list', 'mark off'],
     urgency: 'normal',
     steps: [
-      'In-person exam sheets are supplied at the venue.',
-      'For BYOD: student list is used to mark students off, students sit in allocated seats.',
-      'For other in-person exams: follow the attendance/register sheet supplied at the venue.'
+      'In-person exam sheets are supplied at the venue on the day according to supervisor training.',
+      'For BYOD sittings, training says to use the supplied student list to mark students off and use allocated seating.',
+      'For other in-person sittings, follow the form/sheet and instructions supplied for that exam.'
     ],
     notes: [
-      'Do not resurrect obsolete CSU attendance-slip procedures unless the supplied 2026 forms specifically require them.'
+      'The current published CSU conduct procedure does not prescribe a specific attendance-register format or an old attendance-slip/voucher process. Do not invent one.'
     ],
     status: 'confirm-with-host',
     sourceType: ['Training'],
@@ -268,65 +279,75 @@ export const procedures: Procedure[] = [
   {
     id: 'staffing',
     title: 'Staffing Levels',
-    shortAnswer: '2 supervisors for up to 15 students. Approx 1 per 20 for larger rooms.',
-    keywords: ['staffing', 'ratio', 'number', 'supervisors', 'roster'],
+    shortAnswer: 'Use the Exams team roster/host instruction. The handbook and 27 Aug 2026 training use different staffing wording.',
+    keywords: ['staffing', 'ratio', 'number', 'supervisors', 'roster', 'assistant'],
     urgency: 'normal',
     steps: [
-      'Up to 15 students: 2 supervisors.',
-      'Larger rooms: approximately 1 supervisor per 20 students.'
+      'Follow the staffing roster and instructions issued by the Exams team/host for the actual sitting.',
+      'Supervisor training on 27 Aug 2026 stated: two supervisors for up to 15 students; for larger rooms, approximately one supervisor per 20 students.',
+      'The supplied On-Campus Supervisor Handbook separately states that if there is more than one student to supervise in a session, an assistant supervisor is required.'
     ],
     notes: [
-      'Follow actual Exams team roster/host instruction. Do not try to automatically calculate staffing as an authoritative rule.'
+      'Because these two sources use different wording, do not calculate or change staffing yourself. Escalate any apparent understaffing to the Exams team/host.',
+      'The handbook also states that an exam supervisor should not be a current Charles Sturt student or a blood relative/spouse of a student being supervised.'
     ],
     status: 'confirm-with-host',
-    sourceType: ['Training'],
+    sourceType: ['Training', 'CSU Handbook'],
   },
   {
     id: 'subject-coordinator',
     title: 'Subject Coordinator',
-    shortAnswer: 'Should NOT be in exam room. Notify Exams team if they enter.',
-    keywords: ['coordinator', 'subject', 'teacher', 'lecturer', 'visit'],
+    shortAnswer: 'A Subject Coordinator is not included in the exam-room access list merely because of that role; notify Exams if one attends.',
+    keywords: ['coordinator', 'subject', 'teacher', 'lecturer', 'visit', 'room access', 'who can enter'],
     urgency: 'warning',
     steps: [
-      'Subject Coordinators generally should NOT be in the exam room.',
-      'If a Subject Coordinator enters/visits: notify the Exams team. Do not allow them to informally answer students\' exam questions.',
-      'Formal CSU restrictions limit who may enter an exam room during an examination.'
+      'Current CSU procedure permits only the listed students, exam supervisors, Examinations & Results staff and Division of Learning and Teaching staff to enter an exam room while the exam is in progress.',
+      'Subject Coordinators are not included in that permitted list merely by being the Subject Coordinator.',
+      'Supervisor training says Subject Coordinators should not normally be in the exam room; if one enters or visits, notify the Exams team and follow their direction.',
+      'Do not provide or permit informal academic assistance or interpretation of exam questions.'
     ],
-    sourceType: ['Training'],
+    notes: [
+      'Children are not permitted in an in-person exam room, except where the child is themselves a listed student who is younger than adult age.'
+    ],
+    sourceType: ['CSU Conduct Procedure', 'Training'],
   },
   {
     id: 'open-closed-book',
-    title: 'Open / Closed Book',
-    shortAnswer: 'Check front of exam instructions.',
-    keywords: ['open book', 'closed book', 'permitted', 'materials', 'notes', 'textbook'],
+    title: 'Permitted Materials / Open & Closed Book',
+    shortAnswer: 'The exam instructions control. Unless specifically allowed, reference material, highlighters, calculators, electronic devices and phones are prohibited.',
+    keywords: ['open book', 'closed book', 'permitted', 'materials', 'notes', 'textbook', 'dictionary', 'calculator', 'phone', 'watch', 'fitness tracker'],
     urgency: 'normal',
     steps: [
-      'The front of the specific examination / exam instructions determine permitted materials.',
-      'Do not make assumptions.'
+      'Follow the permitted-material instructions for the specific exam.',
+      'Unless the exam instructions specifically allow them, students cannot bring textbooks/reference material, highlighters, calculators, electronic devices (including electronic dictionaries, laptops, fitness trackers, watches or tablets), mobile phones or other communication devices into the exam sitting.',
+      'Printed multilingual or bilingual general dictionaries are permitted unless specifically prohibited for that exam, and they must contain no notes or annotations.',
+      'If calculators are permitted, they must be portable, silent, self-powered, fit on a standard exam table and be used for numerical calculations only.',
+      'If texts/references are permitted, they cannot be e-books and any restrictions will be listed on the exam paper.',
+      'For in-person exams the University supplies the question papers and answer booklets where relevant; students supply their own writing instruments and other permitted materials.'
     ],
     notes: [
-      'Training notes: open-book and closed-book exams exist. Closed-book online exams are reportedly very rare.'
+      'The on-campus handbook lists pens, 2B pencils, sharpener/eraser and a clear bottle of water among normal student items, plus anything specifically allowed on the exam front page.',
+      'Current policy lists mobile phones/communication devices as prohibited unless the exam instructions allow them. If a student arrives with a phone, do not allow use; follow the current venue/host storage instruction. The supplied handbook says mobile phones/unauthorised materials can be placed face down under the desk.'
     ],
-    sourceType: ['Training'],
+    sourceType: ['CSU Conduct Procedure', 'CSU Handbook', 'CSU Current Students'],
   },
   {
     id: 'general-behaviour',
     title: 'General Behaviour',
-    shortAnswer: 'Calm environment, circulate, stay vigilant.',
-    keywords: ['behaviour', 'conduct', 'knitting', 'crossword', 'vape', 'smoking', 'drink', 'bottle'],
+    shortAnswer: 'Keep the room quiet, circulate and monitor actively; do not distract yourself from supervision.',
+    keywords: ['behaviour', 'conduct', 'knitting', 'crossword', 'vape', 'smoking', 'drink', 'bottle', 'noise', 'monitor'],
     urgency: 'normal',
     steps: [
-      'Maintain calm, quiet environment.',
-      'Circulate around room. Stay vigilant. Don\'t sit in one place for whole exam.',
-      'Don\'t do distracting activities such as knitting/crosswords.',
+      'Keep noise to a minimum and maintain an orderly exam environment.',
+      'Circulate around the room and monitor students; do not sit in one place for the entire exam.',
+      'Do not occupy yourself with activities such as knitting or crosswords that reduce supervision.',
       'Monitor for communication and unauthorised materials.',
-      'Remain approachable without giving academic assistance.',
-      'No vaping or smoking.',
-      'Clear drink bottles only.'
+      'If behaviour is suspicious, stand near the student and continue observing.',
+      'Supervisor training states no vaping or smoking and clear drink bottles only; the handbook specifically describes a clear bottle filled with water.'
     ],
     notes: [
-      'For permitted materials: Always follow the instructions for the specific exam. Do NOT assume "1 clear notebook" is universally permitted.'
+      'Students must obey exam supervisors and the exam instructions. A lead supervisor may direct a disruptive student to leave the exam room.'
     ],
-    sourceType: ['Training'],
+    sourceType: ['CSU Handbook', 'CSU Conduct Procedure', 'Training'],
   }
 ];
