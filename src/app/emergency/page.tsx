@@ -17,7 +17,7 @@ export default function EmergencyPage() {
 
       <main className="flex-1 p-4 max-w-2xl mx-auto w-full pb-20 space-y-6">
         <section className="bg-white p-5 rounded-xl border-l-4 border-red-600 shadow-sm">
-          <h2 className="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">Life-Threatening Emergency</h2>
+          <h2 className="text-red-700 font-bold text-sm uppercase tracking-wider mb-1">Emergency: Police / Fire / Ambulance</h2>
           <p className="text-3xl font-black text-slate-900 mb-4">Call 000</p>
           <a href="tel:000" className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white font-bold text-lg py-4 px-6 rounded-xl shadow-sm active:scale-[0.98] transition-all">
             <Phone className="h-6 w-6" />
@@ -45,41 +45,32 @@ export default function EmergencyPage() {
                 </li>
               ))}
             </ul>
-            
+
             <div className="bg-slate-100 p-4 rounded-lg mb-6 text-sm text-slate-700 border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-xs">If YOU discover fire/smoke:</h3>
+              <h3 className="font-bold text-slate-900 mb-2 uppercase tracking-wide text-xs">If you become aware of fire or smoke</h3>
               <ol className="list-decimal pl-5 space-y-1">
-                <li>Raise/activate alarm.</li>
-                <li>Call 000.</li>
-                <li>Notify CSU Campus Security.</li>
-                <li>Evacuate according to warden instructions.</li>
+                <li>Remain calm and alert nearby staff to leave the immediate area.</li>
+                <li>Activate the fire alarm.</li>
+                <li>Call 000 and request the Fire Brigade. Do not assume someone else has called.</li>
+                <li>Call Campus Security on 1800 931 633 to notify them of the 000 call.</li>
+                <li>Follow Emergency Warden evacuation instructions.</li>
               </ol>
             </div>
 
             <div className="bg-amber-50 p-4 rounded-lg border border-amber-200 text-sm">
-              <h3 className="font-bold text-amber-900 mb-2 flex items-center gap-2">
-                EXAM CONSEQUENCES
-              </h3>
+              <h3 className="font-bold text-amber-900 mb-2">IF THE EXAM IS STOPPED FOR SAFETY</h3>
               <ul className="list-disc pl-5 space-y-1 text-amber-800">
-                <li>Students do not individually need to lodge Special Consideration merely because the exam was stopped for safety.</li>
-                <li>The academic response is determined by the appropriate CSU school/Subject Coordinator process.</li>
-                <li>Possible outcomes can include marking completed work, deferred examination or replacement assessment.</li>
+                <li>Students do not submit individual Special Consideration applications merely because the exam was cancelled or ended early for safety.</li>
+                <li>The Head of the teaching school decides the academic response on the Subject Coordinator’s recommendation.</li>
+                <li>Current policy options include marking completed work with allowance for lost time, using other assessment to determine the grade, a deferred exam, or a replacement assessment.</li>
               </ul>
             </div>
-            
+
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 text-sm mt-4">
-              <h3 className="font-bold text-blue-900 mb-2">PAPER EXAMS DURING EVACUATION</h3>
-              <ul className="list-disc pl-5 space-y-1 text-blue-800">
-                <li>Do not delay evacuation to gather exam papers.</li>
-                <li>Leave exam materials in place unless current wardens/Exam instructions tell you otherwise.</li>
-                <li>Maintain supervision and exam security where practicable.</li>
-                <li>Do not allow discussion of exam content.</li>
-              </ul>
-            </div>
-            
-            <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-sm mt-4 font-medium text-red-800 flex gap-2 items-start">
-              <span className="text-xl">⚠️</span>
-              <p>Current CSU documents do not clearly specify BYOD laptop handling during evacuation. Follow warden/host instructions and never delay evacuation for a device.</p>
+              <h3 className="font-bold text-blue-900 mb-2">EXAM MATERIALS / BYOD DURING EVACUATION</h3>
+              <p className="text-blue-800">
+                Current public CSU emergency and examination documents do not specify whether paper exam materials or BYOD laptops should be taken during an evacuation. Follow the Emergency Warden and current Exams/host instructions. Evacuation and safety directions take priority.
+              </p>
             </div>
           </section>
         )}
